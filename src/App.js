@@ -8,7 +8,7 @@ function App() {
   const [greeting, setGreeting] = useState("");
   const [isGreetingOpen, setIsGreetingOpen] = useState(true);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [errors, setErrors] = useState({});
+  // const [errors, setErrors] = useState({});
   const [isThankYouOpen, setIsThankYouOpen] = useState(false);
   const [feedbackList, setFeedbackList] = useState([]);
 
@@ -28,30 +28,18 @@ function App() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.name) newErrors.name = "Name is required.";
-    if (!formData.email) newErrors.email = "Email is required.";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
-      newErrors.email = "Invalid email format.";
-    if (!formData.message) newErrors.message = "Message is required.";
-    return newErrors;
-  };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-    } else {
-      setErrors({});
+    
       const newFeedback = { ...formData };
       const updatedFeedbackList = [...feedbackList, newFeedback];
       setFeedbackList(updatedFeedbackList);
       localStorage.setItem("feedbackList", JSON.stringify(updatedFeedbackList));
       setIsThankYouOpen(true);
       setFormData({ name: "", email: "", message: "" });
-    }
+    
   };
 
   return (
@@ -75,11 +63,11 @@ function App() {
             type="text"
             id="name"
             name="name"
+            required
             value={formData.name}
             onChange={handleInputChange}
-            className={errors.name ? "error" : ""}
+      
                       />
-          {errors.name && <span className="error-text">{errors.name}</span>}
         </div>
 
         <div className="form-group">
@@ -88,12 +76,11 @@ function App() {
             type="email"
             id="email"
             name="email"
+            required
             value={formData.email}
             onChange={handleInputChange}
-            required
-            className={errors.email ? "error" : ""}
+          
           />
-          {errors.email && <span className="error-text">{errors.email}</span>}
         </div>
 
         <div className="form-group">
@@ -101,11 +88,10 @@ function App() {
           <textarea
             id="message"
             name="message"
+            required
             value={formData.message}
             onChange={handleInputChange}
-            className={errors.message ? "error" : ""}
           ></textarea>
-          {errors.message && <span className="error-text">{errors.message}</span>}
         </div>
 
         <button type="submit">Submit</button>

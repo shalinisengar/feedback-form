@@ -84,15 +84,7 @@ body {
     box-sizing: border-box;
   }
   
-  input.error, textarea.error {
-    border-color: red;
-  }
-  
-  .error-text {
-    color: red;
-    font-size: 14px;
-  }
-  
+ 
   button[type="submit"] {
     width: 100%;
     margin-top: 10px;

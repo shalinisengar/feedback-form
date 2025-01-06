@@ -13,7 +13,15 @@ body {
     padding: 20px;
   }
   
+  input.error, textarea.error {
+    border-color: red;
+  }
   
+  .error-text {
+    color: red;
+    font-size: 14px;
+  }
+
   .modal {
     background: white;
     padding: 20px;
@@ -80,7 +88,7 @@ body {
   input, textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #9c05fa;
     border-radius: 5px;
     box-sizing: border-box;
   }
@@ -106,3 +114,53 @@ body {
     }
   }
   
+  /* Modal Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  width: 400px;
+  text-align: center;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-closing {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

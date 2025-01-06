@@ -37,7 +37,7 @@ body {
   }
   
   button {
-    background-color: #0570fb;
+    background-color: #5b04b9;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -61,9 +61,10 @@ body {
   }
   
   .feedback-form h1 {
+    text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
-    color: #0452fc;
+    color: #5b04b9;
   }
   
   .form-group {

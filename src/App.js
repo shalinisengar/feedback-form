@@ -78,7 +78,7 @@ function App() {
             value={formData.name}
             onChange={handleInputChange}
             className={errors.name ? "error" : ""}
-          />
+                      />
           {errors.name && <span className="error-text">{errors.name}</span>}
         </div>
 
@@ -90,6 +90,7 @@ function App() {
             name="email"
             value={formData.email}
             onChange={handleInputChange}
+            required
             className={errors.email ? "error" : ""}
           />
           {errors.email && <span className="error-text">{errors.email}</span>}

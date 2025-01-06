@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@ body {
     padding: 20px;
   }
   
-  /* Modal Styles */
+  
   .modal {
     background: white;
     padding: 20px;
@@ -49,8 +49,7 @@ body {
   button:hover {
     background-color: #05b94a;
   }
-  
-  /* Form Styles */
+
   .feedback-form {
     background: white;
     padding: 20px;
@@ -99,7 +98,6 @@ body {
     margin-top: 10px;
   }
   
-  /* Responsive Design */
   @media (max-width: 768px) {
     .feedback-form {
       padding: 15px;
